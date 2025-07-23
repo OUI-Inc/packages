@@ -14,6 +14,7 @@ import androidx.media3.common.C;
 import androidx.media3.common.MediaItem;
 import androidx.media3.common.PlaybackParameters;
 import androidx.media3.exoplayer.ExoPlayer;
+import androidx.media3.exoplayer.SeekParameters;
 import io.flutter.view.TextureRegistry.SurfaceProducer;
 
 /**
@@ -47,6 +48,7 @@ public abstract class VideoPlayer {
     this.surfaceProducer = surfaceProducer;
     exoPlayer = exoPlayerProvider.get();
     exoPlayer.setMediaItem(mediaItem);
+    exoPlayer.setSeekParameters(SeekParameters.EXACT);
     exoPlayer.prepare();
     exoPlayer.addListener(createExoPlayerEventListener(exoPlayer, surfaceProducer));
     setAudioAttributes(exoPlayer, options.mixWithOthers);
