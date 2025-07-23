@@ -48,7 +48,7 @@ public abstract class VideoPlayer {
     this.surfaceProducer = surfaceProducer;
     exoPlayer = exoPlayerProvider.get();
     exoPlayer.setMediaItem(mediaItem);
-    exoPlayer.setSeekParameters(SeekParameters.EXACT);
+    exoPlayer.setSeekParameters(SeekParameters.CLOSEST_SYNC);
     exoPlayer.prepare();
     exoPlayer.addListener(createExoPlayerEventListener(exoPlayer, surfaceProducer));
     setAudioAttributes(exoPlayer, options.mixWithOthers);
